@@ -1,0 +1,13 @@
+name: Show Current Date
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches: [ "**" ]
+
+jobs:
+  print-date: 
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Print current date
+      run: echo "Current date ant time is:$(date)"
