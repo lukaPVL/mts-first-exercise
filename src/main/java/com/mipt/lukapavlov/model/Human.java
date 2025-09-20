@@ -6,6 +6,13 @@ public class Human {
     private int age;
     private boolean status;
 
+    public Human(String name, String lastname, int age, boolean status) {
+        this.name = name;
+        this.lastname = lastname;
+        this.age = age;
+        this.status = status;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
