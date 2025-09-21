@@ -1,4 +1,4 @@
-package com.mipt.lukapavlov;
+package com.mipt.lukapavlov.model;
 
 public interface Study {
 

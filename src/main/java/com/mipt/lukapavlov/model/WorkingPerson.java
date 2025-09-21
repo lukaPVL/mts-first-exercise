@@ -1,6 +1,4 @@
-package com.mipt.lukapavlov;
-
-import com.mipt.lukapavlov.model.Human;
+package com.mipt.lukapavlov.model;
 
 public abstract class WorkingPerson extends Human {
 
