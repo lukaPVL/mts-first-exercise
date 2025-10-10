@@ -3,28 +3,28 @@ package com.mipt.lukapavlov.generics;
 public class Calculator<T extends Number> {
     public double sum(T a, T b) {
         if (a == null || b == null) {
-            throw new IllegalArgumentException("Аргументы не могут быть null");
+            return Double.NaN;
         }
         return a.doubleValue() + b.doubleValue();
     }
 
     public double substract(T a, T b) {
         if (a == null || b == null) {
-            throw new IllegalArgumentException("Аргументы не могут быть null");
+            return Double.NaN;
         }
         return a.doubleValue() - b.doubleValue();
     }
 
     public double multiply(T a, T b) {
         if (a == null || b == null) {
-            throw new IllegalArgumentException("Аргументы не могут быть null");
+            return Double.NaN;
         }
         return a.doubleValue() * b.doubleValue();
     }
 
     public double divide(T a, T b) {
         if (a == null || b == null) {
-            throw new IllegalArgumentException("Аргументы не могут быть null");
+            return Double.NaN;
         }
         if (b.doubleValue() == 0.0) {
             return Double.NaN;
