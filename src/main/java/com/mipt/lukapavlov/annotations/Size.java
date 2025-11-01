@@ -7,6 +7,7 @@ import java.lang.annotation.*;
 public @interface Size {
     int min() default 0;
     int max() default Integer.MAX_VALUE;
+    String message();
 }
 
 
