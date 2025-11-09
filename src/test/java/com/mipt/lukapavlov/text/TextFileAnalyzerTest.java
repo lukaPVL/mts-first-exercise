@@ -3,10 +3,13 @@ package com.mipt.lukapavlov.text;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
+import java.io.FileDescriptor;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -42,5 +45,18 @@ public class TextFileAnalyzerTest {
         // TODO добавь проверки на файл по пути: outputFile
         //  1. его размер больше 0
         //  2. прочитай этот файл и посмотри что в нем записаны аналогинчные данные как в объекте `result`
+        assertEquals(true, Files.size(outputFile) > 0);
+        StringBuilder builder = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(new FileReader(outputFile.toFile()))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                builder.append(line).append("\n");
+            }
+        }
+        String content = builder.toString();
+
+        assertEquals(content.contains("Количество строк: 2"), true);
+        assertEquals(content.contains("Количество слов: 5"), true);
+        assertEquals(content.contains("Количество символов: 20"), true);
     }
 }

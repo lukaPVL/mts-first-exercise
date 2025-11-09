@@ -1,8 +1,6 @@
 package com.mipt.lukapavlov.text;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class TextFileAnalyzer {
     public static class AnalysisResult {
@@ -62,6 +60,13 @@ public class TextFileAnalyzer {
 
     public void saveAnalysisResult(AnalysisResult result, String outputPath) throws IOException {
         // TODO: Сохранить результаты в файл по указанному пути `outputPath` используя BufferedWriter в
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath))) {
+            writer.write("Результаты анализа файла:\n");
+            writer.write("==========================\n");
+            writer.write("Количество строк: " + result.getLineCount() + "\n");
+            writer.write("Количество слов: " + result.getWordCount() + "\n");
+            writer.write("Количество символов: " + result.getCharCount() + "\n");
+        }
     }
 }
 
