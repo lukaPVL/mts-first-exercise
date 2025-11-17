@@ -7,12 +7,12 @@ import java.util.Optional;
 //      1. При findDataByKey - логировать действие через System.out.println
 //      2. При saveData - логировать действие через System.out.println
 //      3. При deleteData - логировать действие через System.out.println
-class LoggingDecorator implements DataService {
+public class LoggingDecorator implements DataService {
 
     private final DataService wrappedService;
 
 
-    LoggingDecorator(DataService wrappedService) {
+    public LoggingDecorator(DataService wrappedService) {
         this.wrappedService = wrappedService;
     }
 

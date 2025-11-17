@@ -7,7 +7,7 @@ import java.util.Optional;
 //      1. При findDataByKey - влидируются входные данные
 //      2. При saveData - влидируются входные данные
 //      3. При deleteData - влидируются входные данные
-class ValidationDecorator implements DataService {
+public class ValidationDecorator implements DataService {
 
     private final DataService wrappedService;
 

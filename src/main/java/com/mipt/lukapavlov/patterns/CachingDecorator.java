@@ -9,13 +9,13 @@ import java.util.Optional;
 //      1. При findDataByKey - кешировать результаты
 //      2. При saveData - обновлять данные в кэше
 //      3. При deleteData - инвалидировать кэш
-class CachingDecorator implements DataService {
+public class CachingDecorator implements DataService {
 
     private final DataService wrappedService;
 
     private final Map<String, String> cache = new HashMap<>();
 
-    CachingDecorator(DataService wrappedService) {
+    public CachingDecorator(DataService wrappedService) {
         this.wrappedService = wrappedService;
     }
 

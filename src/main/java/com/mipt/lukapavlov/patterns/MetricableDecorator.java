@@ -8,14 +8,14 @@ import java.util.Optional;
 //      1. При findDataByKey - замерять скорость работы метода и отправлять через MetricService (реализация уже есть внутри класса)
 //      2. При saveData - замерять скорость работы метода и отправлять через MetricService (реализация уже есть внутри класса)
 //      3. При deleteData - замерять скорость работы метода и отправлять через MetricService (реализация уже есть внутри класса)
-class MetricableDecorator implements DataService {
+public class MetricableDecorator implements DataService {
 
     private final DataService wrappedService;
     private final MetricService metricService;
 
-    MetricableDecorator(DataService wrappedService, MetricService metricService) {
+    public MetricableDecorator(DataService wrappedService) {
         this.wrappedService = wrappedService;
-        this.metricService = metricService;
+        this.metricService = new MetricService();
     }
 
     @Override

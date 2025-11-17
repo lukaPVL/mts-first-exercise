@@ -1,14 +1,24 @@
 package com.mipt.lukapavlov;
 
+import com.mipt.lukapavlov.patterns.*;
+
 public class MainClass {
-    private int intField;
-    private String stringField;
-    protected double doubleField;
-    public final long LONG_FIELD = 10^5;
+
 
     public static void main(String[] args) {
-        for (int start = 0; start < 15; start++) {
-            System.out.println("Iter: " + start);
-        }
+        final var service = new ValidationDecorator(
+                new MetricableDecorator(
+                        new LoggingDecorator(
+                                new CachingDecorator(
+                                        new SimpleDataService()
+                                )
+                        )
+                )
+        );
+
+        service.saveData("key", "data");
+        final var data = service.findDataByKey("key");
+        service.deleteData("key");
+        final var noData = service.findDataByKey("key");
     }
 }
